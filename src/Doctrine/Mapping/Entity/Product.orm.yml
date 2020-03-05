@@ -1,0 +1,30 @@
+App\Entity\Product:
+  type: entity
+  table: products
+
+  id:
+    id:
+      type: string
+
+  fields:
+    name:
+      type: string
+      nullable: false
+    description:
+      type: string
+      nullable: false
+    quantity:
+      type: string
+      nullable: false
+    price:
+      type: integer
+      nullable: false
+    createdAt:
+      type: datetime
+      nullable: false
+    updatedAt:
+      type: datetime
+      nullable: false
+
+  lifecycleCallbacks:
+    preUpdate: [markAsUpdated]

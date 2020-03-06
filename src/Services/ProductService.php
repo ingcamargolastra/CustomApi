@@ -41,6 +41,11 @@ class ProductService
         ];
     }
 
+    /**
+     * @param Request|mixed $request
+     * @return array
+     * @throws \Exception
+     */
     public function store(Request $request): array
     {
         $name = RequestTransformer::getRequiredField($request, 'name');

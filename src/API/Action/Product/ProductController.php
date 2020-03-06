@@ -7,6 +7,7 @@ namespace App\API\Action\Product;
 use App\API\Action\RequestTransformer;
 use App\Entity\Product;
 use App\Repository\ProductRepository;
+use App\Requests\ProductFormRequest;
 use App\Services\ProductService;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -33,12 +34,12 @@ class ProductController
     }
 
     /**
-     * @param Request $request
+     * @param ProductFormRequest $request
      * @return JsonResponse
      * @throws \Exception
      * @Route("/products/store", methods={"POST"})
      */
-    public function store(Request $request): JsonResponse
+    public function store(ProductFormRequest $request): JsonResponse
     {
         return new JsonResponse($this->productService->store($request));
     }

@@ -14,10 +14,11 @@ class JsonExceptionResponseTransformerListener
     {
         $exception = $event->getThrowable();
 
-        if ($exception instanceof HttpExceptionInterface) {
+        if ($exception) {
             $data = [
                 'class' => \get_class($exception),
-                'code' => $exception->getStatusCode(),
+                'code' => 200,
+                'success' => false,
                 'message' => $exception->getMessage(),
             ];
 
